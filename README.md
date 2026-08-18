@@ -2,11 +2,26 @@
 
 Two Make.com automations built for a real small business: a course landing page ([babyreflexology.co.il](https://babyreflexology.co.il)) that captures every signup, and a payment flow that grants course access the moment a real payment lands — no manual copy-paste, no missed follow-up.
 
-This repo documents the automation piece of a larger project (landing page in Lovable + this backend), used with the client's permission as a portfolio case study. It's not a runnable app and it holds no automation source (blueprints/configs) — Make.com is the only source of truth for the live scenarios. This repo shows *what* the system does and *why* it's built that way, backed by screenshots of it running for real, plus the actual email template sent to leads.
+This repo documents the automation piece of a larger project, published with the client's permission as a portfolio case study. It's not a runnable app and it holds no automation source (blueprints/configs) — Make.com is the only source of truth for the live scenarios. This repo shows *what* the system does and *why* it's built that way, backed by screenshots of it running for real, plus the actual email template sent to leads.
 
 ---
 
-## 1. Lead capture
+## About the project
+
+The client is a reflexologist running a private clinic (pregnancy, fertility issues, migraines) who also teaches a course called *Baby Reflexology* — hands-on techniques parents can use on infants for common first-year issues (colic, constipation, sleep). She needed a way to sell and deliver that course online, end to end, with no existing website or digital sales process.
+
+**Built solo, end to end**, beyond just these two automations:
+
+- **The landing page itself** — business spec → copy → visual design → build in Lovable, deployed on the client's own domain (babyreflexology.co.il). It's a separate app under the client's own account/repo, not part of this repo.
+- **Accessibility** — audited in a real browser (not a checklist pass), including a floating accessibility widget (text size, contrast, link emphasis, motion toggle) matching the standard pattern used on Israeli sites. Live Lighthouse scores: 96 accessibility, 100 Best Practices, 100 SEO.
+- **AEO/GEO for AI search** — structured data (JSON-LD) and an `llms.txt` file, so AI-driven search/answer engines can parse the business correctly.
+- **Privacy policy + terms of use** — drafted from what the site actually does (verified in the code, not assumed), not boilerplate.
+- **Payment infrastructure** — Green Invoice (billing/receipts) connected to Morning and Grow for the actual charge.
+- **The two automations below** — the backend that ties the form, the CRM, and the payment webhook together.
+
+## The automations
+
+### 1. Lead capture
 
 **The problem:** every landing-page signup needed to be captured reliably and followed up on immediately, without the client manually checking a form/email inbox all day.
 
@@ -42,7 +57,7 @@ The actual HTML email template sent to every lead lives in [`templates/email-ini
 
 ---
 
-## 2. Payment → course access
+### 2. Payment → course access
 
 **The problem:** once a client pays (via Green Invoice), she needs course access granted automatically and reliably — matched back to the right lead, with no risk of a payment silently going untracked.
 
