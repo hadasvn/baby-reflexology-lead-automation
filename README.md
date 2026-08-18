@@ -60,7 +60,9 @@ Green Invoice webhook ──▶ filter (course price only) ──▶ match to ex
 - **Course access itself isn't sent by Make** — this was rebuilt after testing showed the original design (a static email with a hardcoded course-link placeholder) didn't match how the course platform actually works. The live version instead adds the customer to a mailing-list-based subscriber system that's integrated with the course platform, which is what actually triggers access + login delivery.
 - **A final confirmation email to the owner** closes the loop — if it arrives, nothing about that payment needs manual checking.
 
-*(Screenshot of this scenario pending — will be added once captured.)*
+**Screenshot (live scenario, including the retry/alert branches on every step):**
+
+![Payment scenario canvas](docs/screenshots/payment-scenario.png)
 
 ---
 
