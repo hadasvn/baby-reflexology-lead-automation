@@ -16,4 +16,4 @@ flowchart LR
     E -.error.-> H4[Gmail alert to owner]
 ```
 
-**Why the status update (step F) comes after the email (step E), not before:** if the email send fails, the row must stay at "ליד חדש" so the failure is visible in the sheet itself, not just in an alert email — see [`../../automation/make-blueprint-leads.json`](../../automation/make-blueprint-leads.json).
+**Why the status update (step F) comes after the email (step E), not before:** if the email send fails, the row must stay at "ליד חדש" so the failure is visible in the sheet itself, not just in an alert email.
